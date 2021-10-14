@@ -1,0 +1,8 @@
+{
+  "name": "naff_template",
+  "version": "0.0.1",
+  "description": "React-Native template that contains navigation, admobs, firebase and facebook ads configurations",
+  "repository": "git@github.com:Elaissaoui-Ali/NaffTemplate",
+  "author": "Elaissaoui Ali <ali.3laissaoui@gmail.com>",
+  "license": "None"
+}
