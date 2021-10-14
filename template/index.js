@@ -10,7 +10,6 @@ const WrappedApp = (props) => {
         <App/>
     </Provider>);
 }
-AppRegistry.registerComponent(
-    appName,
-    () => WrappedApp,
-    false);
+
+AppRegistry.registerComponent(appName, () => WrappedApp);
+

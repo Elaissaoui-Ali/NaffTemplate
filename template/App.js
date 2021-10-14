@@ -10,47 +10,21 @@ import database from '@react-native-firebase/database';
 
 const Stack = createNativeStackNavigator();
 
-const App=() => {
-    const dispatch = useDispatch();
 
-    useEffect(()=>{
-        database().ref('/admobIds')
-            .on('value',
-                (snapshot) => {
-                    const ids = snapshot.val();
-                    if (snapshot.hasChild('bannerId')) {
-                        dispatch(actions.setAdmobBannerId(ids.bannerId));
-                    }
-                    if (snapshot.hasChild('interstitialId')) {
-                        dispatch(actions.setAdmobInterstitialId(ids.interstitialId));
-                        console.log('firebase: admob interstitial id fetched : ', ids.interstitialId);
-                    }
-                });
+const App = (props) => {
+  const dispatch = useDispatch();
 
-        database().ref('/fbadsIds')
-            .on('value',
-                (snapshot) => {
-                    const ids = snapshot.val();
-                    if (snapshot.hasChild('interstitialId')) {
-                        dispatch(actions.setFacebookInterstitialId(ids.interstitialId));
-                    }
-                    if (snapshot.hasChild('bannerId')) {
-                        dispatch(actions.setFacebookInterstitialId(ids.bannerId));
-                    }
-                });
+  useEffect(() => {
+    // database().ref('/path')
+    //     .on('value',
+    //         (snapshot) => {
+    //           const ids = snapshot.val();
+    //           if (snapshot.hasChild('bannerId')) {
+    //             dispatch(actions.setAdmobBannerId(ids.bannerId));
+    //           }
+    //         });
 
-        database().ref('/CPAIds')
-            .on('value',
-                (snapshot) => {
-                    const ids = snapshot.val();
-                    if (snapshot.hasChild('apiKey')) {
-                        dispatch(actions.setCPAApiKey(ids.apiKey));
-                    }
-                    if (snapshot.hasChild('userId')) {
-                        dispatch(actions.setCPAUserId(ids.userId));
-                    }
-                });
-    }, [])
+  }, []);
 
   return (
       <View style={{width: '100%', height: '100%'}}>
@@ -62,7 +36,6 @@ const App=() => {
         </NavigationContainer>
       </View>
   );
-};
-
+}
 
 export default App;

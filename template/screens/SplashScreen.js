@@ -1,18 +1,14 @@
-import React from "react";
-import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
-import {useSelector} from "react-redux";
+import React from 'react';
+import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
 
 const SplashScreen = (props) => {
-    const {admobInterstitialId, facebookInterstitialId} = useSelector((state) => (state.adsIdsReducer));
     const navigateForward = () => {
-        props.navigation.replace('Main');
+        props.navigation.replace('Content');
     }
     return (
         <View style={styles.container}>
-            <TouchableOpacity onPress={() => {
-                navigateForward();
-            }}>
-                <Text style={{color: 'white', backgroundColor: 'blue'}}>Go to main page</Text>
+            <TouchableOpacity onPress={navigateForward}>
+                <Text style={styles.text}> Navigate to content</Text>
             </TouchableOpacity>
         </View>
     );
@@ -23,8 +19,13 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '100%',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
     },
+    text:{
+        padding:20,
+        color:'white',
+        backgroundColor: 'brown'
+    }
 });
 
 export default SplashScreen;
