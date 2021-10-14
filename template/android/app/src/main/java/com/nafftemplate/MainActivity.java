@@ -1,4 +1,5 @@
 package com.nafftemplate;
+import android.os.Bundle;
 
 import com.facebook.react.ReactActivity;
 
